@@ -12,13 +12,10 @@ import SearchBar from './components/SearchBar/SearchBarContainer'
 import dummyData from './dummy-data'
 import PostsPage from "./components/PostsContainer/PostsPage";
 
-// console.log(dummyData)
-
 
 const App = props => {
   // set up state for the dummy data and pass to your PostsPage
-  // const [postData, setpostData] = useState(initialState)
-  const postData = dummyData;
+  const [postData] = useState(dummyData)
 
 
   return (
