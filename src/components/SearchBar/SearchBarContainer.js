@@ -2,20 +2,23 @@
 import React from "react";
 import "./SearchBar.css";
 
-const SearchBar = () => {
-
+const SearchBar = props => {
   return (
     <div className="search-bar-wrapper">
       <div className="image-wrapper">
         <i className="fab fa-instagram fa-2x" />
         <span className="logo-breaker"></span>
-      {/* <div className="logo-title">Instagram</div> */}
-      <img className="instagram-logo" src="https://techmarketingbuffalo.com/wp-content/uploads/2013/11/instagram-name-logo-11-22.jpg"/>
+        {/* <div className="logo-title">Instagram</div> */}
+        <img
+          className="instagram-logo"
+          src="https://techmarketingbuffalo.com/wp-content/uploads/2013/11/instagram-name-logo-11-22.jpg"
+        />
       </div>
       <form className="search-form">
         <input
+          name="userSearch"
           type="text"
-          
+          onChange={props.handleSearch}
           placeholder="Search"
         />
       </form>
