@@ -5,14 +5,30 @@ import Post from "./Post";
 import "./Posts.css";
 // import data 
 
-const PostsPage = () => {
-  // set up state for your data
-  return (
-    <div className="posts-container-wrapper">
-      {/* map through data here to return a Post and pass data as props to Post */}
-    </div>
-  );
+
+// pass the data from App.js down as props then map through the data
+const PostsPage = props => {
+  const data = props.postData;
+  console.log(props);
+
+  let userFilter = data.filter(ele => {
+    // console.log(ele)
+    ele.username.includes(props.searchText);
+  });
+
+  if (userFilter.length > 0) {
+    return (
+      <div className="posts-container-wrapper">
+        {userFilter.map((ele, index) => Post(ele, index))}
+      </div>
+    );
+  } else {
+    return (
+      <div className="posts-container-wrapper">
+        {data.map((ele, index) => Post(ele, index))}
+      </div>
+    );
+  }
 };
 
 export default PostsPage;
-
